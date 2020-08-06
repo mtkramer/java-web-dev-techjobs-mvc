@@ -40,18 +40,3 @@ public class SearchController {
     }
 
 }
-
-/*
-Use the correct annotation for the method. To configure the correct mapping type and mapping route,
-refer to the form tag in the search.html template.
-The displaySearchResults method should take in a Model parameter.
-The method should also take in two other parameters, specifying the type of search and the search term.
-In order for these last two parameters to be properly passed in by Spring Boot, you need to use the
-correct annotation. Also, you need to name them appropriately, based on the corresponding form field
-names defined in search.html.
-If the user enters “all” in the search box, or if they leave the box empty, call the findAll() method
-from JobData. Otherwise, send the search information to findByColumnAndValue. In either case, store the
-results in a jobs ArrayList.
-Pass jobs into the search.html view via the model parameter.
-Pass ListController.columnChoices into the view, as the existing search handler does.
- */
