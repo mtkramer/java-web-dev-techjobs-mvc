@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head">
 </head>
 <body>
@@ -11,8 +11,22 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
+    <table th:each="job: ${jobs}" class="job-listing">
+        <tr>
+            <td>
+                <p th:text="'ID: ' + ${job.id}"></p>
+                <p th:text="'Name: ' + ${job.name}"></p>
+                <p th:text="'Location: ' + ${job.location}"></p>
+                <p th:text="'Position Type: ' + ${job.positionType}"></p>
+                <p th:text="'Skill: ' + ${job.coreCompetency}"></p>
+            </td>
+        </tr>
+    </table>
 
 </div>
 
 </body>
+<!--
+
+-->
 </html>
