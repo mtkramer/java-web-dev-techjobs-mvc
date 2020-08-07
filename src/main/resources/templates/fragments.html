@@ -30,11 +30,11 @@
     <table th:fragment="job-listing" th:each="job: ${jobs}" class="job-listing">
         <tr>
             <td>
-                <p th:text="'ID: ' + ${job.id}"></p>
-                <p th:text="'Name: ' + ${job.name}"></p>
-                <p th:text="'Location: ' + ${job.location}"></p>
-                <p th:text="'Position Type: ' + ${job.positionType}"></p>
-                <p th:text="'Skill: ' + ${job.coreCompetency}"></p>
+                <p th:text="'ID: ' + ${#strings.toUpperCase(job.id)}"></p>
+                <p th:text="'Name: ' + ${#strings.toUpperCase(job.name)}"></p>
+                <p th:text="'Location: ' + ${#strings.toUpperCase(job.location)}"></p>
+                <p th:text="'Position Type: ' + ${#strings.toUpperCase(job.positionType)}"></p>
+                <p th:text="'Skill: ' + ${#strings.toUpperCase(job.coreCompetency)}"></p>
             </td>
         </tr>
     </table>
