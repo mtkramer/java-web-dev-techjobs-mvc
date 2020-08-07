@@ -30,11 +30,12 @@
     <table th:fragment="job-listing" th:each="job: ${jobs}" class="job-listing">
         <tr>
             <td>
-                <p th:text="'ID: ' + ${#strings.toUpperCase(job.id)}"></p>
+                <p th:text="'ID: ' + ${job.id}"></p>
                 <p th:text="'Name: ' + ${#strings.toUpperCase(job.name)}"></p>
-                <p th:text="'Location: ' + ${#strings.toUpperCase(job.location)}"></p>
-                <p th:text="'Position Type: ' + ${#strings.toUpperCase(job.positionType)}"></p>
-                <p th:text="'Skill: ' + ${#strings.toUpperCase(job.coreCompetency)}"></p>
+                <p>Employer: <a th:href="@{/list/jobs(column=${'employer'},value=${job.employer})}" th:text="${#strings.toUpperCase(job.employer)}"></a></p>
+                <p>Location: <a th:href="@{/list/jobs(column=${'location'},value=${job.location})}" th:text="${#strings.toUpperCase(job.location)}"></a></p>
+                <p>Position Type: <a th:href="@{/list/jobs(column=${'positionType'},value=${job.positionType})}" th:text="${#strings.toUpperCase(job.positionType)}"></a></p>
+                <p>Skill: <a th:href="@{/list/jobs(column=${'coreCompetency'},value=${job.coreCompetency})}" th:text="${#strings.toUpperCase(job.coreCompetency)}"></a></p>
             </td>
         </tr>
     </table>
