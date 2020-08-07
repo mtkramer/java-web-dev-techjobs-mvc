@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:fragment="head">
+    <head th:fragment="head">
 
-    <!-- Bootstrap stylesheets and script -->
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+        <!-- Bootstrap stylesheets and script -->
+        <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+        <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+        <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-    <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">TechJobs</title>
-</head>
+        <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">TechJobs</title>
+    </head>
 
-<body>
-
-    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a th:href="@{/}" class="navbar-brand">TechJobs</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a th:href="@{/search}">Search</a></li>
-                    <li><a th:href="@{/list}">List</a></li>
-                </ul>
+    <body>
+        <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a th:href="@{/}" class="navbar-brand">TechJobs</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/search}">Search</a></li>
+                        <li><a th:href="@{/list}">List</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <table th:fragment="job-listing" th:each="job: ${jobs}" class="job-listing">
-        <tr>
-            <td>
-                <p th:text="'ID: ' + ${job.id}"></p>
-                <p th:text="'Name: ' + ${#strings.toUpperCase(job.name)}"></p>
-                <p>Employer: <a th:href="@{/list/jobs(column=${'employer'},value=${job.employer})}" th:text="${#strings.toUpperCase(job.employer)}"></a></p>
-                <p>Location: <a th:href="@{/list/jobs(column=${'location'},value=${job.location})}" th:text="${#strings.toUpperCase(job.location)}"></a></p>
-                <p>Position Type: <a th:href="@{/list/jobs(column=${'positionType'},value=${job.positionType})}" th:text="${#strings.toUpperCase(job.positionType)}"></a></p>
-                <p>Skill: <a th:href="@{/list/jobs(column=${'coreCompetency'},value=${job.coreCompetency})}" th:text="${#strings.toUpperCase(job.coreCompetency)}"></a></p>
-            </td>
-        </tr>
-    </table>
+        <table th:fragment="job-listing" th:each="job: ${jobs}" class="job-listing">
+            <tr>
+                <td>
+                    <p th:text="'ID: ' + ${job.id}"></p>
+                    <p th:text="'Name: ' + ${#strings.toUpperCase(job.name)}"></p>
+                    <p>Employer: <a th:href="@{/list/jobs(column=${'employer'},value=${job.employer})}" th:text="${#strings.toUpperCase(job.employer)}"></a></p>
+                    <p>Location: <a th:href="@{/list/jobs(column=${'location'},value=${job.location})}" th:text="${#strings.toUpperCase(job.location)}"></a></p>
+                    <p>Position Type: <a th:href="@{/list/jobs(column=${'positionType'},value=${job.positionType})}" th:text="${#strings.toUpperCase(job.positionType)}"></a></p>
+                    <p>Skill: <a th:href="@{/list/jobs(column=${'coreCompetency'},value=${job.coreCompetency})}" th:text="${#strings.toUpperCase(job.coreCompetency)}"></a></p>
+                </td>
+            </tr>
+        </table>
+    </body>
 
-</body>
 </html>
